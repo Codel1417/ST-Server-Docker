@@ -6,12 +6,6 @@ ENV \
 
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/.ci/linux-build.yml
 
-#Git
-RUN \
-    git lfs install \
-    && git clone --recursive https://github.com/tiltedphoques/TiltedOnline.git \
-    && cd TiltedOnline
-
 #Install
 RUN \
     add-apt-repository ppa:ubuntu-toolchain-r/test \
@@ -19,6 +13,7 @@ RUN \
     && apt-get install \
         g++-10 \
         g++-10-multilib \
+        git \
     && update-alternatives --remove-all gcc \
     && update-alternatives --remove-all g++ \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 \
@@ -27,6 +22,12 @@ RUN \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100 \
     && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 100 \
     && update-alternatives --set c++ /usr/bin/g++
+
+#Git
+RUN \
+    git lfs install \
+    && git clone --recursive https://github.com/tiltedphoques/TiltedOnline.git \
+    && cd TiltedOnline
 
 #Generate
 RUN  \
