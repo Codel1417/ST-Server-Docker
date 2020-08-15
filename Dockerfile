@@ -1,8 +1,4 @@
 FROM ubuntu:latest
-ENV \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
 
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/.ci/linux-build.yml
 
@@ -20,6 +16,7 @@ RUN \
         g++-10-multilib \
         git \
         git-lfs \
+        build-essential \
     && update-alternatives --remove-all gcc || true \
     && update-alternatives --remove-all g++ || true \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 \
