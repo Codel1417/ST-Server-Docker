@@ -40,7 +40,7 @@ RUN  \
 #Build
 RUN \
     cd /root/TiltedOnline/Build/projects \
-    && make config=Skyrim_linux -j`nproc`
+    && make config=skyrim_linux -j`nproc`
 
 
 # Copy data for add-on
