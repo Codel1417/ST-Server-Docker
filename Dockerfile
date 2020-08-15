@@ -17,8 +17,8 @@ RUN \
         g++-10 \
         g++-10-multilib \
         git \
-    && update-alternatives --remove-all gcc \
-    && update-alternatives --remove-all g++ \
+    && update-alternatives --remove-all gcc || true \
+    && update-alternatives --remove-all g++ || true \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 \
     && update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 100 \
     && update-alternatives --set cc /usr/bin/gcc \
