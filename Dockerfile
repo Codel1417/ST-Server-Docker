@@ -6,6 +6,8 @@ ENV \
 
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/.ci/linux-build.yml
 
+WORKDIR /root/
+
 #Install
 RUN \ 
     apt-get update \
@@ -17,6 +19,7 @@ RUN \
         g++-10 \
         g++-10-multilib \
         git \
+        git-lfs \
     && update-alternatives --remove-all gcc || true \
     && update-alternatives --remove-all g++ || true \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 \
