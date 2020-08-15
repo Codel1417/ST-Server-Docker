@@ -9,11 +9,11 @@ ENV \
 #Install
 RUN \ 
     apt-get update \
-    && apt-get install \
+    && apt-get install -y  \
         software-properties-common \
     && add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get update \
-    && apt-get install \
+    && apt-get install -y  \
         g++-10 \
         g++-10-multilib \
         git \
