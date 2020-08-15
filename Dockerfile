@@ -33,18 +33,16 @@ RUN \
 RUN \
     git lfs install \
     && git clone --recursive https://github.com/tiltedphoques/TiltedOnline.git \
-    && cd TiltedOnline
-
 #Generate
 RUN  \
-    cd Build \
+    cd /root/TiltedOnline/Build \
     && chmod +x ./premake5 \
     && chmod +x ./MakeGMakeProjects.sh \
     && ./MakeGMakeProjects.sh
 
 #Build
 RUN \
-    cd Build/projects \
+    cd /root/TiltedOnline/Build/projects \
     && make config=Skyrim_linux -j`nproc`
 
 
