@@ -1,0 +1,25 @@
+{
+    "name": "Skyrim Together Server",
+    "version": "0.1",
+    "slug": "st-server",
+    "description": "",
+    "arch": ["armhf", "amd64"],
+    "startup": "application",
+    "boot": "auto",
+    "ports": {
+        "10578/udp": 10578 
+    },
+    "ports_description": {
+        "10578/udp": "Server Port"
+    },
+    "options": {
+        "Server Name": "Home Assistant",
+        "Premium Tick Rate": "false",
+        "Password": ""
+    },
+    "schema": {
+        "Server Name": "str",
+        "Premium Tick Rate": "bool",
+        "Password": "str"
+    }
+}
