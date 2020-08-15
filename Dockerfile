@@ -32,7 +32,7 @@ RUN \
 #Git
 RUN \
     git lfs install \
-    && git clone --recursive https://github.com/tiltedphoques/TiltedOnline.git \
+    && git clone --recursive https://github.com/tiltedphoques/TiltedOnline.git
 #Generate
 RUN  \
     cd /root/TiltedOnline/Build \
