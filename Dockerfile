@@ -7,8 +7,11 @@ ENV \
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/.ci/linux-build.yml
 
 #Install
-RUN \
-    add-apt-repository ppa:ubuntu-toolchain-r/test \
+RUN \ 
+    apt-get update \
+    && apt-get install \
+        software-properties-common \
+    && add-apt-repository ppa:ubuntu-toolchain-r/test \
     && apt-get update \
     && apt-get install \
         g++-10 \
