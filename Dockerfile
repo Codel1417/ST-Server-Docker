@@ -47,7 +47,7 @@ FROM alpine:latest AS Final
 #Copy final result
 COPY --from=0 /root/TiltedOnline/Build/bin/x64/SkyrimTogetherServer/ .
 
-RUN apk install --no-cache bash
+RUN apk add --no-cache bash
 
 # Copy data for add-on
 COPY run.sh /
