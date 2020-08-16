@@ -46,7 +46,7 @@ RUN \
 
 FROM alpine:latest AS Final
 #Copy final result
-COPY --from=0 /root/tiltedphoques/Build/bin/x64/Skyrim/ .
+COPY --from=0 /root/TiltedOnline/Build/bin/x64/Skyrim/ .
 
 RUN apk install --no-cache bash
 
