@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:latest AS Builder
 
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/.ci/linux-build.yml
 
@@ -43,6 +43,12 @@ RUN \
     cd /root/TiltedOnline/Build/projects \
     && make config=skyrim_x64 -j`nproc`
 
+
+FROM alpine:latest AS Final
+#Copy final result
+COPY --from=0 /root/tiltedphoques/Build/bin/x64/Skyrim/ .
+
+RUN apk install --no-cache bash
 
 # Copy data for add-on
 COPY run.sh /

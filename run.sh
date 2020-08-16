@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/bash
 
 
-/Server
+./skyrim_server_linux
