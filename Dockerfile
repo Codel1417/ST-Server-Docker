@@ -46,10 +46,14 @@ RUN \
     && make config=skyrim_x64 -j`nproc`
 
 FROM alpine:latest AS Final
+
 #Copy final result
 COPY --from=0 /root/TiltedOnline/Build/bin/x64/SkyrimTogetherServer/ .
 
-RUN apk add --no-cache bash
+RUN \ 
+    apk add --no-cache \
+        bash \
+        jq
 
 # Copy data for add-on
 COPY run.sh /
