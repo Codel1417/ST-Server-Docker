@@ -17,7 +17,7 @@ RUN \
         git \
         git-lfs \
         build-essential \
-        libssl-dev\
+        libssl-dev \
     && update-alternatives --remove-all gcc || true \
     && update-alternatives --remove-all g++ || true \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 \
