@@ -41,14 +41,11 @@ RUN  \
 #Build
 RUN \
     cd /root/TiltedOnline/Build/projects \
-    && make config=skyrim_x64 -j`nproc` \
-    && cd .. \
-    && ls -l
-
+    && make config=skyrim_x64 -j`nproc`
 
 FROM alpine:latest AS Final
 #Copy final result
-COPY --from=0 /root/TiltedOnline/Build/bin/x64/Skyrim/ .
+COPY --from=0 /root/TiltedOnline/Build/bin/x64/SkyrimTogetherServer/ .
 
 RUN apk install --no-cache bash
 
