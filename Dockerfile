@@ -41,7 +41,9 @@ RUN  \
 #Build
 RUN \
     cd /root/TiltedOnline/Build/projects \
-    && make config=skyrim_x64 -j`nproc`
+    && make config=skyrim_x64 -j`nproc` \
+    && cd .. \
+    && ls -l
 
 
 FROM alpine:latest AS Final
