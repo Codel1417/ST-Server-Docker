@@ -45,7 +45,8 @@ RUN \
     cd /root/TiltedOnline/Build/projects \
     && make config=skyrim_x64 -j`nproc`
 
-FROM alpine:latest AS Final
+
+FROM "homeassistant/amd64-base:3.11 AS Final
 
 #Copy final result
 COPY --from=0 /root/TiltedOnline/Build/bin/x64/SkyrimTogetherServer/ .
