@@ -33,17 +33,17 @@ RUN \
 RUN \
     git lfs install \
     && git clone --recursive https://github.com/tiltedphoques/TiltedOnline.git
+
 #Generate
+WORKDIR  /root/TiltedOnline/Build
 RUN  \
-    cd /root/TiltedOnline/Build \
-    && chmod +x ./premake5 \
+    chmod +x ./premake5 \
     && chmod +x ./MakeGMakeProjects.sh \
     && ./MakeGMakeProjects.sh
 
 #Build
-RUN \
-    cd /root/TiltedOnline/Build/projects \
-    && make config=skyrim_x64 -j`nproc`
+WORKDIR /root/TiltedOnline/Build/projects
+RUN make config=skyrim_x64 -j`nproc`
 
 
 FROM "homeassistant/amd64-base:3.11 AS Final
