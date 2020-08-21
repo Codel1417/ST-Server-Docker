@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS Builder
+FROM ubuntu:latest
 
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/.ci/linux-build.yml
 #https://github.com/tiltedphoques/TiltedOnline/blob/master/azure-pipelines.yml
@@ -46,7 +46,7 @@ WORKDIR /root/TiltedOnline/Build/projects
 RUN make config=skyrim_x64 -j`nproc`
 
 
-FROM "homeassistant/amd64-base:3.11 AS Final
+FROM homeassistant/amd64-base:3.11
 
 #Copy final result
 COPY --from=0 /root/TiltedOnline/Build/bin/x64/SkyrimTogetherServer/ .
